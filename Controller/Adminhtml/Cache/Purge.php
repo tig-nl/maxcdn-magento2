@@ -69,7 +69,7 @@ class Purge extends Action
         $purgedZones = $this->purge->purgeAllZones();
 
         foreach ($purgedZones as $zone => $errorCode) {
-            $messages[$zone] = $this->purge->generateMessage($zone, $errorCode);
+            $this->purge->generateMessage($zone, $errorCode);
         }
 
         return $resultRedirect;
