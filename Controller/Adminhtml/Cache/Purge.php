@@ -46,14 +46,14 @@ class Purge extends Action
      */
     const ADMIN_RESOURCE = 'Magento_Backend::cache';
 
-    protected $_purge;
+    private $purge;
 
     public function __construct(
-        PurgeAll $_purge,
+        PurgeAll $purge,
         Action\Context $context
     )
     {
-        $this->_purge = $_purge;
+        $this->purge = $purge;
         parent::__construct(
             $context
         );
@@ -65,10 +65,10 @@ class Purge extends Action
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $resultRedirect->setPath('adminhtml/*/index');
 
-        $purgedZones = $this->_purge->purgeAllZones();
+        $purgedZones = $this->purge->purgeAllZones();
 
         foreach ($purgedZones as $zone => $errorCode) {
-            $messages[$zone] = $this->_purge->generateMessage($zone, $errorCode);
+            $messages[$zone] = $this->purge->generateMessage($zone, $errorCode);
         }
 
         return $resultRedirect;
