@@ -46,6 +46,7 @@ class Purge extends Action
      */
     const ADMIN_RESOURCE = 'Magento_Backend::cache';
 
+    /** @var PurgeAll $purge */
     private $purge;
 
     public function __construct(
