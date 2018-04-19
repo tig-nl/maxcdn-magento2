@@ -34,7 +34,6 @@ namespace TIG\MaxCDN\Controller\Adminhtml\Cache;
 
 use TIG\MaxCDN\Observer\PurgeAll;
 use Magento\Backend\App\Action;
-use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Controller\ResultFactory;
 
 class Purge extends Action

@@ -32,28 +32,15 @@
 
 namespace TIG\MaxCDN\Observer;
 
-use TIG\MaxCDN\Model\Connection;
-use Magento\Framework\App\Config\ScopeConfigInterface;
+use TIG\MaxCDN\Model\Api;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\Message\ManagerInterface;
 
-class PurgeAll extends Connection implements ObserverInterface {
+class PurgeAll extends Api implements ObserverInterface {
 
-    protected $_connection;
-
-    public function __construct(
-        ScopeConfigInterface $scopeConfig,
-        ManagerInterface $messageManager,
-        Connection $_connection
-    )
-    {
-        $this->_connection = $_connection;
-        parent::__construct(
-            $this->scopeConfig = $scopeConfig,
-            $this->messageManager = $messageManager
-        );
-    }
-
+    /**
+     * @param \Magento\Framework\Event\Observer $observer
+     * @return array
+     */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $purgedZones = $this->purgeAllZones();
@@ -65,8 +52,11 @@ class PurgeAll extends Connection implements ObserverInterface {
         return $messages;
     }
 
+    /**
+     * @return array
+     */
     public function purgeAllZones() {
-        $api = $this->_connection->getConnection();
+        $api = $this->getConnection();
 
         $zones = json_decode($api->get('/zones.json'))->data->zones;
 
@@ -77,8 +67,13 @@ class PurgeAll extends Connection implements ObserverInterface {
         return $status;
     }
 
+    /**
+     * @param $zone
+     *
+     * @return int|\Exception
+     */
     public function purgeZone($zone) {
-        $api = $this->_connection->getConnection();
+        $api = $this->getConnection();
 
         $zoneId = $zone->id;
 
@@ -91,13 +86,19 @@ class PurgeAll extends Connection implements ObserverInterface {
         return $status;
     }
 
+    /**
+     * @param $zone
+     * @param $errorCode
+     *
+     * @return \Magento\Framework\Message\ManagerInterface
+     */
     public function generateMessage($zone, $errorCode) {
         $code = (int)json_decode($errorCode)->code;
 
         if ($code !== 200) {
-            return $this->messageManager->addErrorMessage(__('MaxCDN Pull Zone [ID: ' . $zone . '] not purged. Error code:') . ' ' . $code);
+            return $this->getMessageManager()->addErrorMessage(__('MaxCDN Pull Zone [ID: ' . $zone . '] not purged. Error code:') . ' ' . $code);
         }
 
-        return $this->messageManager->addSuccessMessage(__('MaxCDN Pull Zone [ID: ' . $zone . '] purged successfully.'));
+        return $this->getMessageManager()->addSuccessMessage(__('MaxCDN Pull Zone [ID: ' . $zone . '] purged successfully.'));
     }
 }

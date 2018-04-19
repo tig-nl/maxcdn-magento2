@@ -32,55 +32,45 @@
 
 namespace TIG\MaxCDN\Model;
 
-use MaxCDN;
-use Magento\Framework\App\Config\ScopeConfigInterface;
+use TIG\MaxCDN\Service\MaxCDNFactory;
 use Magento\Framework\Message\ManagerInterface;
 
-class Connection {
-
-    const CONFIG_PATH = 'tig_max_cdn';
-
-    /** @var ScopeConfigInterface $scopeConfig */
-    public $scopeConfig;
+class Api {
 
     /** @var ManagerInterface $messageManager */
-    public $messageManager;
+    private $messageManager;
+
+    /** @var MaxCDNFactory $maxCdnFactory */
+    private $maxCdnFactory;
 
     /**
-     * Connection constructor.
+     * Api constructor.
      *
-     * @param ScopeConfigInterface $scopeConfig
+     * @param MaxCDNFactory $maxCdnFactory
      * @param ManagerInterface $messageManager
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig,
+        MaxCDNFactory $maxCdnFactory,
         ManagerInterface $messageManager
     )
     {
-        $this->scopeConfig = $scopeConfig;
+        $this->maxCdnFactory = $maxCdnFactory;
         $this->messageManager = $messageManager;
     }
 
     /**
-     * @return MaxCDN
+     * Generates MaxCDN class from composer library.
+     *
+     * @return mixed
      */
     public function getConnection() {
-        $companyAlias = $this->getConfigValue('general', 'cdn_company_alias');
-        $consumerKey = $this->getConfigValue('general', 'cdn_consumer_key');
-        $consumerSecret = $this->getConfigValue('general', 'cdn_consumer_secret');
-
-        return new MaxCDN($companyAlias, $consumerKey, $consumerSecret);
+        return $this->maxCdnFactory->create();
     }
 
     /**
-     * @param $group string
-     * @param $field string
-     * @return mixed
+     * @return ManagerInterface $messageManager
      */
-    public function getConfigValue($group, $field) {
-        $scope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        $configValue = $this->scopeConfig->getValue(self::CONFIG_PATH . '/' . $group . '/' . $field, $scope);
-
-        return $configValue;
+    public function getMessageManager() {
+        return $this->messageManager;
     }
 }
