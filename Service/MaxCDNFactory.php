@@ -75,9 +75,9 @@ class MaxCDNFactory
         $secret = $this->getConfigValue(static::TIG_MAXCDN_CONSUMER_SECRET);
 
         return $this->objectManager->create(MaxCDN::class, [
-            'alias'     => $alias,
-            'key'       => $key,
-            'secret'    => $secret
+            'alias'  => $alias,
+            'key'    => $key,
+            'secret' => $secret
         ]);
     }
 
