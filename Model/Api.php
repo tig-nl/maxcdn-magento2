@@ -61,7 +61,7 @@ class Api {
     /**
      * Generates MaxCDN class from composer library.
      *
-     * @return mixed
+     * @return MaxCDNFactory
      */
     public function getConnection() {
         return $this->maxCdnFactory->create();

@@ -67,7 +67,7 @@ class MaxCDNFactory
     }
 
     /**
-     * @return mixed
+     * @return MaxCDN
      */
     public function create() {
         $alias = $this->getConfigValue(static::TIG_MAXCDN_COMPANY_ALIAS);

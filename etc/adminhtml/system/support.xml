@@ -1,6 +1,5 @@
-<?xml version="1.0"?>
-<!--
-/**
+<?xml version="1.0" encoding="UTF-8"?><!--
+ *
  *
  *          ..::..
  *     ..::::::::::::..
@@ -29,16 +28,15 @@
  *
  * @copyright   Copyright (c) Total Internet Group B.V. https://tig.nl/copyright
  * @license     http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
- */
+ *
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
-    <system>
-        <section id="tig_max_cdn" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>MaxCDN</label>
-            <tab>advanced</tab>
-            <resource>Advanced_MaxCDN::configuration</resource>
-            <include path="TIG_MaxCDN::system/support.xml" />
-            <include path="TIG_MaxCDN::system/general.xml" />
-        </section>
-    </system>
-</config>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <!-- Support section -->
+    <group id="support" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Version &amp; Contact</label>
+        <fieldset_css>tig_maxcdn-section</fieldset_css>
+        <group id="tig_maxcdn" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+            <frontend_model>TIG\MaxCDN\Block\Adminhtml\Config\Support\Tab</frontend_model>
+        </group>
+    </group>
+</include>
