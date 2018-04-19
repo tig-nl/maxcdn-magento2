@@ -37,7 +37,6 @@
             <label>MaxCDN</label>
             <tab>advanced</tab>
             <resource>Advanced_MaxCDN::configuration</resource>
-            <!--<class>cdn-section</class>-->
             <include path="TIG_MaxCDN::system/general.xml"/>
         </section>
     </system>
