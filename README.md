@@ -14,7 +14,6 @@ You can imagine that it makes more sense to let Magento decide when the files on
 other way around. This extension makes your M2 installation and MaxCDN work together, instead of seperately.
 
 ## What does it do?
-* It's configuration can be found under _Stores > Configuration > Advanced > MaxCDN_
 * It purges all available pull zones in your account, when:
   * You press the 'Purge All Pull Zones'-button within the Cache Management-page, or
 * Whenever the following happens:
@@ -24,5 +23,26 @@ other way around. This extension makes your M2 installation and MaxCDN work toge
   * Flush JS/CSS Cache,
   * Upload a product image.
 
-At this point this extension has only been tested on Magento 2.1.11, but we will make it compatible with more recent version in upcoming
+At this point this extension has only been tested on Magento 2.1.11, but we will make it compatible with more recent versions in upcoming
 releases.
+
+## Installation using Composer
+
+<pre>composer require tig/maxcdn-magento2</pre>
+
+## Configuration
+
+This module's configuration can be found under _Stores > Configuration > Advanced > MaxCDN_.
+
+#### To create your API Application
+* Make sure you're logged in to your MaxCDN-account and follow [this URL](https://cp.maxcdn.com/account/api)
+* Click on 'Create Application'
+* Enter a Name and Description for your API-application, the Application URL and Callback URL should replicate your store-URL
+* Allow API key full permission to this account
+* Click on 'Update' and you'll be presented with the necessary credentials to configure the extension.
+* **Don't forget to Whitelist your servers' IP!**
+
+#### Further Configuration
+* Take note of the _Company Alias_, the _Consumer Key_ and the _Consumer Secret_ and enter them in the corresponding
+fields of this Magento 2 module's configuration page.
+
