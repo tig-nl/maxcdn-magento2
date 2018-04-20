@@ -34,7 +34,7 @@ releases.
 
 This module's configuration can be found under **Stores** > **Configuration** > **Advanced** > **MaxCDN**.
 
-#### To create your API Application
+### To create your API Application
 * Make sure you're logged in to your MaxCDN-account and follow [this URL](https://cp.maxcdn.com/account/api)
 * Click on **Create Application**
 * Enter a _Name_ and _Description_ for your API-application, the _Application URL_ and _Callback URL_ should replicate your store-URL
@@ -42,7 +42,7 @@ This module's configuration can be found under **Stores** > **Configuration** > 
 * Click on **Update** and you'll be presented with the necessary credentials to configure the extension.
 * **Don't forget to Whitelist your servers' IP!**
 
-#### Module Configuration
+### Module Configuration
 * Take note of the **Company Alias**, the **Consumer Key** and the **Consumer Secret** and enter them in the corresponding
 fields of this Magento 2 module's configuration page.
 * Go to **Stores** > **Configuration** > **General** > **Web** and enter your Pull Zone's CDN URL in the fields _(Secure) Base URL 
