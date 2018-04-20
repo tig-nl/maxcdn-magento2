@@ -54,6 +54,7 @@ for Static View Files_ and _(Secure) Base URL for User Media Files_.
 * You're all set! Enjoy **MaxCDN on Magento 2**!
 
 ## FAQ
-* I keep getting CORS-related errors in my console!
-  * _Make sure you've followed the guide above step by step. Check your Pull Zone's White-/Blacklist inside the MaxCDN Control
-    Panel. If everything seems to be in order, read [this article](https://www.maxcdn.com/one/tutorial/how-to-use-cdn-with-webfonts/) for further troubleshooting.  
+> I keep getting CORS-related errors in my console!
+
+Make sure you've followed the guide above step by step. Check [your Pull Zone's](https://cp.maxcdn.com/zones/pull/) White-/Blacklist inside the MaxCDN Control Panel. If everything 
+seems to be in order, read [this article](https://www.maxcdn.com/one/tutorial/how-to-use-cdn-with-webfonts/) for further troubleshooting.  
