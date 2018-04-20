@@ -1,5 +1,4 @@
 # TIG MaxCDN for Magento 2
-
 We created this extension to **improve the workability of MaxCDN with Magento 2**. At this point the moments at which MaxCDN's refreshes its
 servers are depended on them. They poll periodically if new files have been uploaded or download them upon request. This means that the
 first request is always slower than it could be.
@@ -27,14 +26,12 @@ At this point this extension has only been tested on Magento 2.1.*, but we will 
 releases.
 
 ## Installation using Composer
-
 <pre>composer require tig/maxcdn-magento2</pre>
 
 ## Configuration
-
 This module's configuration can be found under **Stores** > **Configuration** > **Advanced** > **MaxCDN**.
 
-#### To create your API Application
+### To create your API Application
 * Make sure you're logged in to your MaxCDN-account and follow [this URL](https://cp.maxcdn.com/account/api)
 * Click on **Create Application**
 * Enter a _Name_ and _Description_ for your API-application, the _Application URL_ and _Callback URL_ should replicate your store-URL
@@ -42,7 +39,7 @@ This module's configuration can be found under **Stores** > **Configuration** > 
 * Click on **Update** and you'll be presented with the necessary credentials to configure the extension.
 * **Don't forget to Whitelist your servers' IP!**
 
-#### Module Configuration
+### Module Configuration
 * Take note of the **Company Alias**, the **Consumer Key** and the **Consumer Secret** and enter them in the corresponding
 fields of this Magento 2 module's configuration page.
 * Go to **Stores** > **Configuration** > **General** > **Web** and enter your Pull Zone's CDN URL in the fields _(Secure) Base URL 
@@ -50,11 +47,11 @@ for Static View Files_ and _(Secure) Base URL for User Media Files_.
   * Make sure you append each URL with either _/pub/static_ or _/media/_ respectively.
 * Within the MaxCDN Control Panel, go to **Zones** > **Pull Zones**,
 * Click on **Manage** > **Settings** next to the corresponding Pull Zone.
-* Within **Settings**, make sure you've checked the _Add CORS Header_-option.
+* Within **Settings**, make sure you've checked the _Add CORS Header_-option and clicked **Update**.
 * You're all set! Enjoy **MaxCDN on Magento 2**!
 
 ## FAQ
 > I keep getting CORS-related errors in my console!
 
 Make sure you've followed the guide above step by step. Check [your Pull Zone's](https://cp.maxcdn.com/zones/pull/) White-/Blacklist inside the MaxCDN Control Panel. If everything 
-seems to be in order, read [this article](https://www.maxcdn.com/one/tutorial/how-to-use-cdn-with-webfonts/) for further troubleshooting.  
+seems to be in order, read [this article](https://www.maxcdn.com/one/tutorial/how-to-use-cdn-with-webfonts/) for further troubleshooting.
