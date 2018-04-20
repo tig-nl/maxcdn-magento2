@@ -42,7 +42,19 @@ This module's configuration can be found under _Stores > Configuration > Advance
 * Click on 'Update' and you'll be presented with the necessary credentials to configure the extension.
 * **Don't forget to Whitelist your servers' IP!**
 
-#### Further Configuration
-* Take note of the _Company Alias_, the _Consumer Key_ and the _Consumer Secret_ and enter them in the corresponding
+#### Module Configuration
+* Take note of the **Company Alias**, the **Consumer Key** and the **Consumer Secret** and enter them in the corresponding
 fields of this Magento 2 module's configuration page.
+* Go to **Stores** > **Configuration** > **General** > **Web** and enter your Pull Zone's CDN URL in the fields _(Secure) Base URL 
+for Static View Files_ and _(Secure) Base URL for User Media Files_.
+  * Make sure you append each URL with either _/pub/static_ or _/media/_ respectively.
+* Within the MaxCDN Control Panel, go to **Zones** > **Pull Zones**,
+* Click on **Manage** > **Settings** next to the corresponding Pull Zone.
+* Go to **Security** > **Whitelist** and add all your stores' URLs to the _whitelist_, e.g.
+  * my-store.hypernode.io
+  * *.my-store.com
+  * *.my-store.nl
+* Press **Update**.
+* Within **Settings**, make sure you've checked the _Add CORS Header_-option.
+* You're all set! Enjoy **MaxCDN on Magento 2**!
 
