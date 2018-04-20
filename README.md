@@ -1,5 +1,4 @@
 # TIG MaxCDN for Magento 2
-
 We created this extension to **improve the workability of MaxCDN with Magento 2**. At this point the moments at which MaxCDN's refreshes its
 servers are depended on them. They poll periodically if new files have been uploaded or download them upon request. This means that the
 first request is always slower than it could be.
@@ -27,11 +26,9 @@ At this point this extension has only been tested on Magento 2.1.*, but we will 
 releases.
 
 ## Installation using Composer
-
 <pre>composer require tig/maxcdn-magento2</pre>
 
 ## Configuration
-
 This module's configuration can be found under **Stores** > **Configuration** > **Advanced** > **MaxCDN**.
 
 ### To create your API Application
