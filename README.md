@@ -6,11 +6,11 @@ first request is always slower than it could be.
 * But what if you change an already existing image or file?
 * What if you made changes to your JS- or CSS-code?
 
-If you forgot to login to your MaxCDN-account and purge your pull zone after you made the above changes, it'll mean that your layout 
-breaks.
+In these (or any other similar) scenario's, this means: if you forget to login to your MaxCDN-account and purge your pull zone(s) after you 
+made changes to your codebase and/or filesystem, either your layout will break or your visitors are presented with outdated information.
 
 You can imagine that it makes more sense to **let Magento decide when the files on your MaxCDN pull zone are refreshed**, instead of the 
-other way around. This extension makes **Magento 2 and MaxCDN work together**, instead of seperately.
+other way around. This extension makes **Magento 2 and MaxCDN work together**, instead of separated from each other.
 
 ## What does it do?
 * It purges all available pull zones in your account, when:
