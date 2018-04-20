@@ -50,11 +50,11 @@ for Static View Files_ and _(Secure) Base URL for User Media Files_.
   * Make sure you append each URL with either _/pub/static_ or _/media/_ respectively.
 * Within the MaxCDN Control Panel, go to **Zones** > **Pull Zones**,
 * Click on **Manage** > **Settings** next to the corresponding Pull Zone.
-* Within **Settings**, make sure you've checked the _Add CORS Header_-option.
+* Within **Settings**, make sure you've checked the _Add CORS Header_-option and clicked **Update**.
 * You're all set! Enjoy **MaxCDN on Magento 2**!
 
 ## FAQ
 > I keep getting CORS-related errors in my console!
 
 Make sure you've followed the guide above step by step. Check [your Pull Zone's](https://cp.maxcdn.com/zones/pull/) White-/Blacklist inside the MaxCDN Control Panel. If everything 
-seems to be in order, read [this article](https://www.maxcdn.com/one/tutorial/how-to-use-cdn-with-webfonts/) for further troubleshooting.  
+seems to be in order, read [this article](https://www.maxcdn.com/one/tutorial/how-to-use-cdn-with-webfonts/) for further troubleshooting.
