@@ -32,13 +32,44 @@
 
 namespace TIG\MaxCDN\Block\Adminhtml\Cache;
 
+use TIG\MaxCDN\Service\MaxCDNFactory;
+use \Magento\Backend\Block\Template\Context;
+
 class Purge extends \Magento\Backend\Block\Template
 {
+
+    /** @var MaxCDNFactory $maxCdnFactory */
+    protected $maxCdnFactory;
+
+    /**
+     * Purge constructor.
+     *
+     * @param MaxCDNFactory $maxCdnFactory
+     * @param Context $context
+     */
+    public function __construct(
+        MaxCDNFactory $maxCdnFactory,
+        Context $context
+    ) {
+        $this->maxCdnFactory = $maxCdnFactory;
+        parent::__construct(
+            $this->context = $context
+        );
+    }
+
     /**
      * @return string
      */
     public function getPurgeUrl()
     {
         return $this->getUrl('maxcdn/*/purge');
+    }
+
+    /**
+     * @return \Magento\Framework\App\Config\ScopeConfigInterface boolean
+     */
+    public function getIsEnabled()
+    {
+        return $this->maxCdnFactory->getIsEnabled();
     }
 }
