@@ -41,7 +41,7 @@ class Api {
     private $messageManager;
 
     /** @var MaxCDNFactory $maxCdnFactory */
-    private $maxCdnFactory;
+    public $maxCdnFactory;
 
     /**
      * Api constructor.
@@ -61,7 +61,7 @@ class Api {
     /**
      * Generates MaxCDN class from composer library.
      *
-     * @return MaxCDNFactory
+     * @return \MaxCDN
      */
     public function getConnection() {
         return $this->maxCdnFactory->create();

@@ -31,10 +31,12 @@
  */
 ?>
 <div class="additional-cache-management">
+    <?php if ($block->getIsEnabled()): ?>
     <p>
         <button onclick="setLocation('<?php /* @escapeNotVerified */ echo $block->getPurgeUrl() ?>')" type="button">
             <?php /* @escapeNotVerified */ echo __('Purge All Pull Zones') ?>
         </button>
         <span><?php /* @escapeNotVerified */ echo __('All files stored in your configured MaxCDN Pull Zones') ?></span>
     </p>
+    <?php endif; ?>
 </div>

@@ -67,6 +67,13 @@ class Purge extends Action
 
         $purgedZones = $this->purge->purgeAllZones();
 
+        /**
+         * If extension is disabled, no zones are returned. So return to previous screen immediately.
+         */
+        if (!$purgedZones) {
+            return $resultRedirect;
+        }
+
         foreach ($purgedZones as $zone => $errorCode) {
             $this->purge->generateMessage($zone, $errorCode);
         }

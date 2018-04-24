@@ -47,6 +47,7 @@ class MaxCDNFactory
     /** @var ScopeConfigInterface $scopeConfig */
     private $scopeConfig;
 
+    const TIG_MAXCDN_IS_ENABLED = 'tig_max_cdn/general/cdn_is_enabled';
     const TIG_MAXCDN_COMPANY_ALIAS = 'tig_max_cdn/general/cdn_company_alias';
     const TIG_MAXCDN_CONSUMER_KEY = 'tig_max_cdn/general/cdn_consumer_key';
     const TIG_MAXCDN_CONSUMER_SECRET = 'tig_max_cdn/general/cdn_consumer_secret';
@@ -82,9 +83,16 @@ class MaxCDNFactory
     }
 
     /**
+     * @return ScopeConfigInterface
+     */
+    public function getIsEnabled() {
+        return $this->getConfigValue(static::TIG_MAXCDN_IS_ENABLED);
+    }
+
+    /**
      * @param $group string
      * @param $field string
-     * @return mixed
+     * @return ScopeConfigInterface
      */
     public function getConfigValue($field) {
         $scope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;

@@ -45,6 +45,10 @@ class PurgeAll extends Api implements ObserverInterface {
     {
         $purgedZones = $this->purgeAllZones();
 
+        if(!$purgedZones) {
+            return;
+        }
+
         foreach ($purgedZones as $zone => $errorCode) {
             $messages[$zone] = $this->generateMessage($zone, $errorCode);
         }
@@ -56,7 +60,17 @@ class PurgeAll extends Api implements ObserverInterface {
      * @return array
      */
     public function purgeAllZones() {
+        if (!$this->maxCdnFactory->getIsEnabled()) {
+            return;
+        };
+
         $api = $this->getConnection();
+
+        if ($api->alias == null || $api->key == null || $api->secret == null) {
+            $this->getMessageManager()->addNoticeMessage(__('You haven\'t entered all required information to connect to the MaxCDN API.'));
+
+            return;
+        }
 
         $zones = json_decode($api->get('/zones.json'))->data->zones;
 
@@ -73,6 +87,10 @@ class PurgeAll extends Api implements ObserverInterface {
      * @return int|\Exception
      */
     public function purgeZone($zone) {
+        if (!$this->maxCdnFactory->getIsEnabled()) {
+            return;
+        };
+
         $api = $this->getConnection();
 
         $zoneId = $zone->id;
